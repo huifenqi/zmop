@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # encoding=utf-8
+
+import six
 import requests as requests
 from urllib import quote
 
@@ -24,6 +26,7 @@ def buildQuery(params, needEncode):
 
     params_data = ''
     for (key, value) in params.iteritems():
+        value = value.encode('utf-8') if isinstance(value, six.string_types) else value
         if checkEmpty(value):
             value = bool(needEncode) and quote(value) or value
             params_data = params_data + key + '=' + value + '&'

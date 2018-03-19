@@ -75,7 +75,8 @@ def getMaxEncryptBlockSize(rsa_pub):
     '''
     :return int:加密块大小
     '''
-    return rsa_pub.__len__() / 8 - 11
+    return 32
+    # return rsa_pub.__len__() / 8 - 11
 
 
 def getMaxDecryptBlockSize(rsa_pri):
